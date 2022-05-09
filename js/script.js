@@ -6,7 +6,7 @@ allCards.forEach((card) => {
   });
 });
 
-let array = [1, 1, 2, 2, 3, 4, 4, 5, 5];
+let array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 
 // for (let i = 0; i < array.length; i++) {
 //   randomNum = Math.floor(Math.random() * array.length);
@@ -31,12 +31,8 @@ for (let i = array.length - 1; i > 0; i--) {
   array[j] = temp;
 }
 
-array.forEach((card) => {});
-
 console.log(array);
-debugger;
-for (let i = 0; i < array.length; i++) {
-  allCards.forEach((card) => {
-    card.firstChild.innerText = array[i];
-  });
+
+for (let i = 0; i < allCards.length; i++) {
+  allCards[i].firstChild.innerText = array[i];
 }
