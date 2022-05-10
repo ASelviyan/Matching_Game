@@ -1,9 +1,22 @@
 const allCards = document.querySelectorAll(".card");
+const playerPoints = document.querySelector(".playerOnePoints");
+const winMessage = document.querySelector(".winning-message");
+const timerText = document.querySelector(".timer");
 let com1;
 let com2;
 let card1;
 let card2;
 let playerOneCounter = 0;
+
+function timer() {
+  var sec = 30;
+  setInterval(function () {
+    timerText.innerText = sec;
+    sec--;
+    if (sec === -1) {
+    }
+  });
+}
 
 allCards.forEach((card) => {
   card.addEventListener("click", function () {
@@ -19,13 +32,17 @@ allCards.forEach((card) => {
       card2 = e.target.firstChild;
     }
 
-    console.log(card.firstChild.classList);
     console.log(com1);
     console.log(com2);
     if (com1 && com2) {
+      if (e.target.firstChild.className !== "visibility") {
+        e.target.removeEventListener("click");
+      }
       if (com1 === com2) {
         playerOneCounter++;
-        console.log("You got one point");
+        playerPoints.innerText = playerOneCounter;
+        winCondition();
+        console.log(playerOneCounter);
         com1 = "";
         com2 = "";
       } else {
@@ -35,8 +52,6 @@ allCards.forEach((card) => {
           com1 = card1.classList.add("visibility");
           com2 = card2.classList.add("visibility");
         }, 500);
-
-        console.log("im here");
       }
     }
   });
@@ -69,4 +84,9 @@ for (let i = 0; i < allCards.length; i++) {
   allCards[i].firstChild.innerText = array[i];
 }
 
-function winCondition() {}
+function winCondition() {
+  if (playerOneCounter === 6) {
+    winMessage.classList.add("show");
+    console.log("You HAVE WON");
+  }
+}

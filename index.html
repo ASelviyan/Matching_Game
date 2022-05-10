@@ -9,6 +9,8 @@
   </head>
   <body>
     <h1>One Player</h1>
+    <h2>Time: <span class="timer"></span></h2>
+    <h3>Player one points: <span class="playerOnePoints"></span></h3>
     <div class="container">
       <div class="card"><p class="visibility"></p></div>
       <div class="card"><p class="visibility"></p></div>
@@ -23,7 +25,11 @@
       <div class="card"><p class="visibility"></p></div>
       <div class="card"><p class="visibility"></p></div>
     </div>
+    <div class="winning-message" id="winningMessage">
+      <p>You Won</p>
+      <button id="restartButton">Restart</button>
+    </div>
+
     <script src="js/script.js"></script>
   </body>
 </html>
-]
