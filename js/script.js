@@ -31,8 +31,11 @@ allCards.forEach((card) => {
       } else {
         com1 = "";
         com2 = "";
-        com1 = card1.classList.add("visibility");
-        com2 = card2.classList.add("visibility");
+        setTimeout(() => {
+          com1 = card1.classList.add("visibility");
+          com2 = card2.classList.add("visibility");
+        }, 500);
+
         console.log("im here");
       }
     }
