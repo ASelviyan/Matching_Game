@@ -3,6 +3,7 @@ let com1;
 let com2;
 let card1;
 let card2;
+let playerOneCounter = 0;
 
 allCards.forEach((card) => {
   card.addEventListener("click", function () {
@@ -23,6 +24,7 @@ allCards.forEach((card) => {
     console.log(com2);
     if (com1 && com2) {
       if (com1 === com2) {
+        playerOneCounter++;
         console.log("You got one point");
         com1 = "";
         com2 = "";
