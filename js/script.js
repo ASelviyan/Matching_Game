@@ -1,23 +1,41 @@
 const allCards = document.querySelectorAll(".card");
 let com1;
 let com2;
+let card1;
+let card2;
 
 allCards.forEach((card) => {
   card.addEventListener("click", function () {
-    card.firstChild.classList.toggle("visibility");
+    card.firstChild.classList.remove("visibility");
   });
 
   card.addEventListener("click", function (e) {
     if (!com1) {
       com1 = e.target.firstChild.innerText;
+      card1 = e.target.firstChild;
     } else {
       com2 = e.target.firstChild.innerText;
+      card2 = e.target.firstChild;
     }
+
+    console.log(card.firstChild.classList);
     console.log(com1);
     console.log(com2);
+    if (com1 && com2) {
+      if (com1 === com2) {
+        console.log("You got one point");
+        com1 = "";
+        com2 = "";
+      } else {
+        com1 = "";
+        com2 = "";
+        com1 = card1.classList.add("visibility");
+        com2 = card2.classList.add("visibility");
+        console.log("im here");
+      }
+    }
   });
 });
-
 let array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 
 // const shuffleArray = (array) => {
