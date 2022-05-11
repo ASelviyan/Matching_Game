@@ -24,6 +24,7 @@ gameState = true;
 // }
 randomizer(deck);
 
+//Timer
 let timer1 = setInterval(function () {
   timerText.innerText = sec;
   sec--;
