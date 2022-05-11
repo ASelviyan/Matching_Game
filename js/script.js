@@ -3,14 +3,14 @@ const playerPoints = document.querySelector(".playerOnePoints");
 const winMessage = document.querySelector(".winning-message");
 const timerText = document.querySelector(".timer");
 const losingMessage = document.querySelector(".losing-message");
-const restartButton = document.querySelector(".restartButton");
-let array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
+// const restartButton = document.querySelector(".restartButton");
+let deck = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 let com1;
 let com2;
 let card1;
 let card2;
 let playerOneCounter = 0;
-let sec = 10;
+let sec = 3;
 gameState = true;
 
 // function timer() {
@@ -22,6 +22,7 @@ gameState = true;
 //     clearInterval(timerInterval);
 //   }
 // }
+randomizer(deck);
 
 let timer1 = setInterval(function () {
   timerText.innerText = sec;
@@ -82,16 +83,15 @@ function randomizer(array) {
     const temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-    return array;
   }
+  return array;
 }
-randomizer(array);
 
-console.log(array);
+console.log(deck);
 
 // puts those that randomized array elements into each card box
 for (let i = 0; i < allCards.length; i++) {
-  allCards[i].firstChild.innerText = array[i];
+  allCards[i].firstChild.innerText = deck[i];
 }
 
 function winCondition() {
@@ -101,12 +101,21 @@ function winCondition() {
   }
 }
 
-restartButton.addEventListener("click", resetGame);
-
 function resetGame(array) {
-  console.log("hi");
   winMessage.classList.remove("show");
   losingMessage.classList.remove("show");
-  randomizer(array);
+  randomizer(deck);
 }
 // timer();
+
+document
+  .querySelector("#restartButton1")
+  .addEventListener("click", function () {
+    resetGame(deck);
+  });
+
+document
+  .querySelector("#restartButton2")
+  .addEventListener("click", function () {
+    resetGame(deck);
+  });

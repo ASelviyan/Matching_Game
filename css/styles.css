@@ -26,6 +26,9 @@ h3 {
   background-color: white;
   border: 2px solid black;
   margin: 2rem;
+}
+
+.card:hover {
   cursor: pointer;
 }
 
@@ -47,14 +50,17 @@ h3 {
   flex-direction: column;
 }
 
-.winning-message button {
+#restartButton1 {
   font-size: 3rem;
   background-color: white;
   border: 5px solid pink;
   border-radius: 1rem;
   padding: 0.2em 0.5em;
-  cursor: pointer;
   margin: 0;
+}
+
+#restartButton1:hover {
+  cursor: pointer;
 }
 
 .winning-message p {
@@ -79,7 +85,8 @@ h3 {
   flex-direction: column;
 }
 
-.losing-message button {
+#restartButton2 {
+  color: blue;
   font-size: 3rem;
   background-color: white;
   border: 5px solid pink;
@@ -95,4 +102,8 @@ h3 {
 
 .losing-message.show {
   display: flex;
+}
+
+#restartButton1:hover {
+  cursor: pointer;
 }
