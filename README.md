@@ -24,7 +24,7 @@ It's DO or DIE!!!! You will have to match all the symbols on the board before th
 - Make cards not visible until the player clicks on them\*
 - if not a match flip the card so the text isnt seen\*
 - when a card matched the cards need to stay flipped\*
-- add a timer to the one player mode
+- add a timer to the one player mode\*
 - display text when time has run out and stop the game
 - a new game button/back button to go to the main screen
 - instructions button that pulls up the instruction for each game
