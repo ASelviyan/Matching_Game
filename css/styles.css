@@ -64,3 +64,35 @@ h3 {
 .winning-message.show {
   display: flex;
 }
+
+.losing-message {
+  display: none;
+  background-color: rgba(250, 250, 250, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  flex-direction: column;
+}
+
+.losing-message button {
+  font-size: 3rem;
+  background-color: white;
+  border: 5px solid pink;
+  border-radius: 1rem;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  margin: 0;
+}
+
+.losing-message p {
+  margin: 0;
+}
+
+.losing-message.show {
+  display: flex;
+}
