@@ -7,16 +7,26 @@ let com2;
 let card1;
 let card2;
 let playerOneCounter = 0;
+let sec = 30;
+gameState = true;
 
-function timer() {
-  var sec = 30;
-  setInterval(function () {
-    timerText.innerText = sec;
-    sec--;
-    if (sec === -1) {
-    }
-  });
-}
+// function timer() {
+//   let timerInterval = setInterval(function () {
+//     timerText.innerText = sec;
+//     sec--;
+//   }, 1000);
+//   if (sec < 0) {
+//     clearInterval(timerInterval);
+//   }
+// }
+
+let timer1 = setInterval(function () {
+  timerText.innerText = sec;
+  sec--;
+  if (sec <= -1) {
+    clearInterval(timer1);
+  }
+}, 1000);
 
 allCards.forEach((card) => {
   card.addEventListener("click", function () {
@@ -35,9 +45,9 @@ allCards.forEach((card) => {
     console.log(com1);
     console.log(com2);
     if (com1 && com2) {
-      if (e.target.firstChild.className !== "visibility") {
-        e.target.removeEventListener("click");
-      }
+      // if (e.target.firstChild.className !== "visibility") {
+      //   e.target.removeEventListener("click");
+      // }
       if (com1 === com2) {
         playerOneCounter++;
         playerPoints.innerText = playerOneCounter;
@@ -51,7 +61,7 @@ allCards.forEach((card) => {
         setTimeout(() => {
           com1 = card1.classList.add("visibility");
           com2 = card2.classList.add("visibility");
-        }, 500);
+        }, 200);
       }
     }
   });
@@ -90,3 +100,5 @@ function winCondition() {
     console.log("You HAVE WON");
   }
 }
+
+// timer();
