@@ -10,30 +10,12 @@ let com2;
 let card1;
 let card2;
 let playerOneCounter = 0;
-let sec = 7;
+let sec = 15;
 gameState = true;
 
-// function timer() {
-//   let timerInterval = setInterval(function () {
-//     timerText.innerText = sec;
-//     sec--;
-//   }, 1000);
-//   if (sec < 0) {
-//     clearInterval(timerInterval);
-//   }
-// }
 randomizer(deck);
 insertRandomizedCards(allCards);
-
-//Timer
-let timer1 = setInterval(function () {
-  timerText.innerText = sec;
-  sec--;
-  if (sec <= -1) {
-    clearInterval(timer1);
-    losingMessage.classList.add("show");
-  }
-}, 1000);
+timer(sec);
 
 //selects every div
 allCards.forEach((card, i) => {
@@ -77,10 +59,17 @@ function handleClick(e) {
         com1 = card1.classList.add("visibility");
         com2 = card2.classList.add("visibility");
       }, 200);
+      // disappear();
     }
   }
 }
 
+// function disappear(){
+//  setTimeout(() => {
+//         com1 = card1.classList.add("visibility");
+//         com2 = card2.classList.add("visibility");
+//       }, 200);
+//     }
 // Fisher-Yates Shuffle Modern Algorithm
 //lets the array be randomized
 
@@ -103,10 +92,22 @@ function insertRandomizedCards(allCardsP) {
   }
 }
 
+//Timer
+function timer(seconds) {
+  let timer1 = setInterval(function () {
+    timerText.innerText = seconds;
+    seconds--;
+    if (seconds <= -1) {
+      clearInterval(timer1);
+      losingMessage.classList.add("show");
+    }
+  }, 1000);
+}
+
+// if the player gets all 6 match ups then show the winning screen
 function winCondition() {
   if (playerOneCounter === 6) {
     winMessage.classList.add("show");
-    console.log("You HAVE WON");
   }
 }
 
@@ -119,6 +120,8 @@ function resetGame(array) {
     card.firstChild.classList.add("visibility");
     playerOneCounter = 0;
     playerPoints.innerText = playerOneCounter;
+    sec = 15;
+    timer(sec);
   });
 }
 
