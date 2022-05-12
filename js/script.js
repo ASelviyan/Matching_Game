@@ -10,7 +10,7 @@ let com2;
 let card1;
 let card2;
 let playerOneCounter = 0;
-let sec = 3;
+let sec = 7;
 gameState = true;
 
 // function timer() {
@@ -23,6 +23,7 @@ gameState = true;
 //   }
 // }
 randomizer(deck);
+insertRandomizedCards(allCards);
 
 //Timer
 let timer1 = setInterval(function () {
@@ -34,11 +35,16 @@ let timer1 = setInterval(function () {
   }
 }, 1000);
 
+//selects every div
 allCards.forEach((card, i) => {
+  //puts an eventlistener to each card that listens for a click
+  //when clicked it makes the inner text visible to the user
   card.addEventListener("click", function () {
     card.firstChild.classList.remove("visibility");
   });
+  //add an id to each card to differentiate them
   card.firstChild.id = i;
+
   card.addEventListener("click", handleClick);
 });
 
@@ -91,8 +97,10 @@ function randomizer(array) {
 console.log(deck);
 
 // puts those that randomized array elements into each card box
-for (let i = 0; i < allCards.length; i++) {
-  allCards[i].firstChild.innerText = deck[i];
+function insertRandomizedCards(allCardsP) {
+  for (let i = 0; i < allCards.length; i++) {
+    allCards[i].firstChild.innerText = deck[i];
+  }
 }
 
 function winCondition() {
@@ -106,8 +114,13 @@ function resetGame(array) {
   winMessage.classList.remove("show");
   losingMessage.classList.remove("show");
   randomizer(deck);
+  insertRandomizedCards();
+  allCards.forEach((card) => {
+    card.firstChild.classList.add("visibility");
+    playerOneCounter = 0;
+    playerPoints.innerText = playerOneCounter;
+  });
 }
-// timer();
 
 document
   .querySelector("#restartButton1")
