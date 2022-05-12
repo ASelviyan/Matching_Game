@@ -3,6 +3,8 @@ const playerPoints = document.querySelector(".playerOnePoints");
 const winMessage = document.querySelector(".winning-message");
 const timerText = document.querySelector(".timer");
 const losingMessage = document.querySelector(".losing-message");
+const modeOne = document.querySelector(".playerOneButton");
+const modeTwo = document.querySelector(".playerTwoButton");
 // const restartButton = document.querySelector(".restartButton");
 let deck = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 let com1;
@@ -17,6 +19,14 @@ randomizer(deck);
 insertRandomizedCards(allCards);
 timer(sec);
 
+switch (button) {
+  case modeOne:
+
+  case modeTwo:
+
+  default:
+    break;
+}
 //selects every div
 allCards.forEach((card, i) => {
   //puts an eventlistener to each card that listens for a click
@@ -99,7 +109,9 @@ function timer(seconds) {
     seconds--;
     if (seconds <= -1) {
       clearInterval(timer1);
-      losingMessage.classList.add("show");
+      if (gameState === true) {
+        losingMessage.classList.add("show");
+      }
     }
   }, 1000);
 }
@@ -108,6 +120,7 @@ function timer(seconds) {
 function winCondition() {
   if (playerOneCounter === 6) {
     winMessage.classList.add("show");
+    gameState = false;
   }
 }
 

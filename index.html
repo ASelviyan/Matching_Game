@@ -4,36 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Front Page</title>
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
-    <title>Match Or Die</title>
   </head>
-  <body>
-    <h1>One Player</h1>
-    <h2>Time: <span class="timer"></span></h2>
-    <h3>Player one points: <span class="playerOnePoints"></span></h3>
-    <div class="container">
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
-      <div class="card"><p class="visibility"></p></div>
+  <body background="./img/cute.jpg">
+    <div class="title">
+      <h1>Match Or Die!</h1>
     </div>
-    <div class="winning-message">
-      <p>You Won</p>
-      <button id="restartButton1">Restart</button>
+    <div class="instructions">
+      <h2>INSTRUCTIONS</h2>
+      <p>
+        You will have to match all the symbols on the board by clicking on them
+        before the timer runs out!
+      </p>
+      <h2>One Player</h2>
+      <p>You can play by yourself trying to survive against the clock</p>
+      <h2 id="or">OR</h2>
+      <h2>Two Player</h2>
+      <p>Play against your worst enemy your friend!</p>
     </div>
-    <div class="losing-message">
-      <p>You Lose</p>
-      <button id="restartButton2">Restart</button>
+    <div class="playOneDiv">
+      <a class="playerOneButton" href="game.html">One Player</a>
     </div>
-
+    <div class="playTwoDiv">
+      <a class="playerTwoButton" href="game.html">Two Player</a>
+    </div>
     <script src="./js/script.js"></script>
   </body>
 </html>

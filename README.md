@@ -25,8 +25,8 @@ It's DO or DIE!!!! You will have to match all the symbols on the board before th
 - if not a match flip the card so the text isnt seen\*
 - when a card matched the cards need to stay flipped\*
 - add a timer to the one player mode\*
-- display text when time has run out and stop the game
-- a new game button/back button to go to the main screen
+- display text when time has run out and stop the game\*
+- a restart button that restarts the game \*
 - instructions button that pulls up the instruction for each game
 
 ## **STRETCH**
