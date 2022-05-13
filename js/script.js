@@ -5,7 +5,7 @@ const timerText = document.querySelector(".timer");
 const losingMessage = document.querySelector(".losing-message");
 // const modeOne = document.querySelector(".playerOneButton");
 // const modeTwo = document.querySelector(".playerTwoButton");
-// const restartButton = document.querySelector(".restartButton");
+const restartButton = document.querySelector(".restartButton");
 let deck = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 let com1;
 let com2;
@@ -21,12 +21,59 @@ timer(sec);
 
 // switch (button) {
 //   case modeOne:
-//     break;
+// break;
 //   case modeTwo:
-//     break;
+// break;
 //   default:
 //     break;
 // }
+
+//selects every div
+allCards.forEach((card, i) => {
+  //puts an eventlistener to each card that listens for a click
+  //when clicked it makes the inner text visible to the user
+  card.addEventListener("click", function () {
+    card.firstChild.classList.remove("visibility");
+  });
+  //add an id to each card to differentiate them
+  card.firstChild.id = i;
+
+  card.addEventListener("click", handleClick);
+});
+
+function handleClick(e) {
+  if (!com1) {
+    com1 = e.target.firstChild.innerText;
+    card1 = e.target.firstChild;
+  } else {
+    com2 = e.target.firstChild.innerText;
+    card2 = e.target.firstChild;
+  }
+
+  if (card1.id === card2.id) {
+    return;
+  }
+  if (com1 && com2) {
+    if (com1 === com2) {
+      playerOneCounter++;
+      playerPoints.innerText = playerOneCounter;
+      card1.removeEventListener("click", handleClick);
+      card2.removeEventListener("click", handleClick);
+      winCondition();
+      console.log(playerOneCounter);
+      com1 = "";
+      com2 = "";
+    } else {
+      com1 = "";
+      com2 = "";
+      setTimeout(() => {
+        com1 = card1.classList.add("visibility");
+        com2 = card2.classList.add("visibility");
+      }, 200);
+      // disappear();
+    }
+  }
+}
 
 // function disappear(){
 //  setTimeout(() => {
@@ -34,8 +81,6 @@ timer(sec);
 //         com2 = card2.classList.add("visibility");
 //       }, 200);
 //     }
-// Fisher-Yates Shuffle Modern Algorithm
-//lets the array be randomized
 
 document
   .querySelector("#restartButton1")
@@ -49,6 +94,8 @@ document
     resetGame(deck);
   });
 
+// Fisher-Yates Shuffle Modern Algorithm
+//lets the array be randomized
 function randomizer(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
